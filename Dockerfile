@@ -3,9 +3,9 @@ USER root
 EXPOSE 8088
 #CMD ["./standalone.sh"]
 
-RUN mkdir -p /opt/eap/standalone/deployments/test-app
-COPY test-app/* /opt/eap/standalone/deployments/test-app/
-RUN cd /opt/eap/standalone/deployments/test-app && jar cvf /opt/eap/standalone/deployments/test-app.war *
+RUN mkdir -p /opt/eap/standalone/deployments/test-app.war && \
+    touch /opt/eap/standalone/deployments/test-app.war.dodeploy
+COPY test-app/* /opt/eap/standalone/deployments/test-app.war/
  
 #USER root
 #RUN chmod og+rw /opt/app-root/src/db
