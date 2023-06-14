@@ -3,6 +3,9 @@ USER default
 EXPOSE 8088
 #CMD ["./standalone.sh"]
 
+COPY test-app/ /opt/eap/standalone/deployments/
+RUN cd /opt/eap/standalone/deployments/test-app && jar cvf /opt/eap/standalone/deployments/test-app.war *
+ 
 #USER root
 #RUN chmod og+rw /opt/app-root/src/db
 #USER default
