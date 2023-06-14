@@ -3,7 +3,8 @@ USER root
 EXPOSE 8088
 #CMD ["./standalone.sh"]
 
-COPY test-app/ /opt/eap/standalone/deployments/
+RUN mkdir -p /opt/eap/standalone/deployments/test-app
+COPY test-app/* /opt/eap/standalone/deployments/test-app/
 RUN cd /opt/eap/standalone/deployments/test-app && jar cvf /opt/eap/standalone/deployments/test-app.war *
  
 #USER root
